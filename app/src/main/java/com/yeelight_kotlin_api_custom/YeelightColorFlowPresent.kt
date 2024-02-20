@@ -1,0 +1,23 @@
+@file:OptIn(ExperimentalTime::class)
+package com.yeelight_kotlin_api_custom
+
+import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Duration.Companion.seconds
+import kotlin.time.ExperimentalTime
+
+fun flowGreen(speed: Double = 1.0) = listOf(
+    FlowColor(0x00ff00, 100, 2.seconds * speed),
+    FlowColor(0x00ff00, 30, 1.seconds * speed),
+)
+
+fun flowRed(speed: Double = 1.0) = listOf(
+    FlowColor(0xff0000, 100, 2.seconds * speed),
+    FlowColor(0xff0000, 30, 1.seconds * speed),
+)
+
+fun flowPolice(speed: Double = 1.0) = listOf(
+    FlowColor(0xff0000, 100, 500.milliseconds * speed),
+    FlowSleep(200.milliseconds * speed),
+    FlowColor(0x0000ff, 100, 500.milliseconds * speed),
+    FlowSleep(200.milliseconds * speed),
+)
